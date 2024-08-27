@@ -1,0 +1,213 @@
+Arranco Servicio... 2024/08/27 12:49:34
+Base... SBO_SOG
+
+<!DOCTYPE html >
+ <html lang = 'es' >
+  <head >
+      <meta charset = 'UTF-8' >
+       <meta name = 'viewport' content = 'width=device-width, initial-scale=1, shrink-to-fit=no' >
+          <link href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel = 'stylesheet' >
+         </head >
+         <body style = 'background-color: #f8f9fa;' >
+                    
+              <div class='container my-4'>
+        <div class='row justify-content-center'>
+            <div class='col-md-8 text-center p-4' style='background-color: #3B693C;'>
+                <h1 class='text-white'><strong> Proveedor: TELEFONOS DE MEXICO SAB de CV Pago: 8920 Importe: $236.570000 Fecha: 2024/08/27 </strong></h1>
+            </div>
+        </div>
+    </div>
+
+<div class='container my-4'>
+        <div class='row justify-content-center'>
+            <div class='col-md-8 p-4 bg-white shadow-sm rounded'>
+                <p class='mb-2'>
+                    <strong>Factura:</strong> 5882
+                </p>
+                <p class='mb-2'>
+                    <strong>Importe Pagado:</strong> 236.570000
+                </p>
+                <p class='mb-0'>
+                    <strong>UUID:</strong>edd98361-d792-4598-b2f3-7362287558ce
+                </p>
+            </div>
+        </div>
+    </div>
+            
+
+    <script src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js' ></ script >
+</body >
+</html > Destino: El archivo se movió exitosamente.\\scerezo25\Pagos\Comprobantes\SBO_SOG\Procesado\8920.pdfArranco Servicio... 2024/08/27 13:42:33
+Base... SBO_SOG
+
+<div style='background-color: #ececec; padding: 0; margin: 0 auto; font-weight: 200; width: 100%!important;'>
+    <p>&nbsp;</p>
+    <table style='width: 500px; margin-left: auto; margin-right: auto; background-color: #ffffff; height: 150px;'>
+        <tbody>
+            <tr style='height: 62px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 62px;'>
+                    <h2><span style='color: #ffffff;'><strong>Proveedor: TELEFONOS DE MEXICO SAB de CV </strong></span></h2>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 34px;'>
+                    <h3><span style='color: #ffffff;'>  Pago: 8920 Importe: $236.570000 Fecha: 2024/08/27 </span></h3>
+                </td>
+            </tr>
+             <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Factura:</strong></strong> 5882</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Importe Pagado:</strong></strong>236.570000</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>UUID:</strong></strong>edd98361-d792-4598-b2f3-7362287558ce</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div> Destino: El archivo se movió exitosamente.\\scerezo25\Pagos\Comprobantes\SBO_SOG\Procesado\8920.pdfArranco Servicio... 2024/08/27 13:53:27
+Base... SBO_SOG
+
+<div style='background-color: #ececec; padding: 0; margin: 0 auto; font-weight: 200; width: 100%!important;'>
+    <p>&nbsp;</p>
+    <table style='width: 500px; margin-left: auto; margin-right: auto; background-color: #ffffff; height: 150px;'>
+        <tbody>
+            <tr style='height: 62px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 62px;'>
+                    <h2><span style='color: #ffffff;'><strong>Proveedor: TELEFONOS DE MEXICO SAB de CV </strong></span></h2>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 34px;'>
+                    <h3><span style='color: #ffffff;'>  Pago: 8920 Importe: $236.570000 Fecha: 2024/08/27 </span></h3>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 34px;'>
+                    <h3><span style='color: #ffffff;'> Detalle </span></h3>
+                </td>
+            </tr>
+             <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Factura:</strong></strong> 5882</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Importe Pagado:</strong></strong>236.570000</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>UUID:</strong></strong>edd98361-d792-4598-b2f3-7362287558ce</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div> El archivo se movió exitosamente.\\scerezo25\Pagos\Comprobantes\SBO_SOG\Procesado\8920.pdfArranco Servicio... 2024/08/27 13:56:26
+Base... SBO_SOG
+
+<div style='background-color: #ececec; padding: 0; margin: 0 auto; font-weight: 200; width: 100%!important;'>
+    <p>&nbsp;</p>
+    <table style='width: 500px; margin-left: auto; margin-right: auto; background-color: #ffffff; height: 150px;'>
+        <tbody>
+            <tr style='height: 62px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 62px;'>
+                    <h2><span style='color: #ffffff;'><strong>Proveedor: TELEFONOS DE MEXICO SAB de CV </strong></span></h2>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 34px;'>
+                    <h3><span style='color: #ffffff;'>  Pago: 8920| Importe: $236.570000| Fecha: 2024/08/27 </span></h3>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #cccccc; text-align: center; height: 34px;'>
+                    <h3><span style='color: #000000;'> Detalle </span></h3>
+                </td>
+            </tr>
+             <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Factura:</strong></strong> 5882 </span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Importe Pagado:</strong></strong>236.570000</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>UUID:</strong></strong>edd98361-d792-4598-b2f3-7362287558ce</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div> El archivo se movió exitosamente.\\scerezo25\Pagos\Comprobantes\SBO_SOG\Procesado\8920.pdfArranco Servicio... 2024/08/27 13:58:33
+Base... SBO_SOG
+Consulta de bases: -2146232060 - Incorrect syntax near 'Importe_Total'.
+Incorrect syntax near 'Empresa'. - 2024/08/27 13:58:37El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index - Error 2024/08/27 13:58:37
+Arranco Servicio... 2024/08/27 13:59:23
+Base... SBO_SOG
+Consulta de bases: -2146232060 - Incorrect syntax near 'Importe_Total'.
+Incorrect syntax near 'Empresa'. - 2024/08/27 13:59:27El índice estaba fuera del intervalo. Debe ser un valor no negativo e inferior al tamaño de la colección.
+Nombre del parámetro: index - Error 2024/08/27 13:59:27
+Arranco Servicio... 2024/08/27 14:01:14
+Base... SBO_SOG
+
+<div style='background-color: #ececec; padding: 0; margin: 0 auto; font-weight: 200; width: 100%!important;'>
+    <p>&nbsp;</p>
+    <table style='width: 500px; margin-left: auto; margin-right: auto; background-color: #ffffff; height: 150px;'>
+        <tbody>
+            <tr style='height: 62px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 62px;'>
+                    <h2><span style='color: #ffffff;'><strong>Proveedor: TELEFONOS DE MEXICO SAB de CV </strong></span></h2>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #3b693c; text-align: center; height: 34px;'>
+                    <h3><span style='color: #ffffff;'>  Pago: 8920 | Importe: $236.57 | Fecha: 2024/08/27 </span></h3>
+                </td>
+            </tr>
+            <tr style='height: 34px;'>
+                <td style='width: 450px; background-color: #cccccc; text-align: center; height: 34px;'>
+                    <h3><span style='color: #000000;'> Detalle </span></h3>
+                </td>
+            </tr>
+             <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Factura:</strong></strong> 5882 </span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>Importe Pagado:</strong></strong>236.57</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+            <tr style='height: 18px;'>
+                <td style='width: 450px; height: 18px;'><span style='color: #fffff;'> <strong><strong>UUID:</strong></strong>edd98361-d792-4598-b2f3-7362287558ce</span> &nbsp;
+                    <!--?=error.mensaje?-->
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div> El archivo se movió exitosamente.\\scerezo25\Pagos\Comprobantes\SBO_SOG\Procesado\8920.pdf
