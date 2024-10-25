@@ -39,7 +39,8 @@
             // 
             // ServicioPagosEfectuados
             // 
-            this.ServicioPagosEfectuados.ServiceName = "Index";
+            this.ServicioPagosEfectuados.Description = "Servicio de Envio de Pagos Efectuados";
+            this.ServicioPagosEfectuados.ServiceName = "ServicioPagosEfectuados";
             this.ServicioPagosEfectuados.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller

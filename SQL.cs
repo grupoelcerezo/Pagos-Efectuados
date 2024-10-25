@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
 
 namespace PagosEfectuados
 {
@@ -24,7 +21,7 @@ namespace PagosEfectuados
             {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-                    String sql = "select dbName, cmpName from [SBO-COMMON].dbo.SRGC where dbname like 'SBO%' and dbname in ('SBO_SOG')--dbname not in ('SBO_FMF','SBO_GFM_2023')"; //  dbname = 'SBO_SOG'";
+                    String sql = "select dbName, cmpName from [SBO-COMMON].dbo.SRGC where dbname like 'SBO%' and dbname not in ('SBO_FMF','SBO_GFM_2023')"; //  dbname = 'SBO_SOG'";
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -68,9 +65,9 @@ namespace PagosEfectuados
                     String sql = @"		select 
 			T1.DocNum, 
 			T1.CardName,
-			isnull(t5.E_Mail, 'abraham.madrigal@grupoelcerezo.com') email,
+			isnull(case when len(t5.E_Mail) <= 6 then null else t5.E_Mail end, 'abraham.madrigal@grupoelcerezo.com') email,
 			cast(case when t1.DocCurr = 'MXP' then T1.DocTotal else  T1.DocTotalFC end as numeric(18,2)) Importe_Total,
-			T4.NumAtCard 'Factura',
+			isnull(T4.NumAtCard, T4.DocNum) 'Factura',
 			cast(case when t1.DocCurr = 'MXP' then T2.SumApplied else  T2.AppliedFC end as numeric(18,2)) Importe_Factura,
 			T4.U_UUID UUID, 
             (select CompnyName from OADM) Empresa
@@ -80,9 +77,9 @@ namespace PagosEfectuados
 			dbo.VPM2 T2 ON T1.DOCNUM = T2.DocNum  inner JOIN	 -- DETALLE PAGOS SALIENTES Facturas
 			dbo.OPCH T4 ON T2.DocEntry = T4.DocEntry and T2.InvType = T4.ObjType INNER JOIN --Encabezado COMPRAS 
 			a_CatalogoMaster.dbo.OCRD t5 on T1.CardCode = t5.CardCode
-		where t1.docnum = " + Pago ; //  dbname = 'SBO_SOG'";
+		where t1.docnum = " + Pago; //  dbname = 'SBO_SOG'";
 
-                    
+
                     connection.Open();
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -96,7 +93,7 @@ namespace PagosEfectuados
                                 newItem.Nombre = reader.GetString(1);
                                 newItem.email = reader.GetString(2);
                                 newItem.Imp_Pago = reader.GetDecimal(3);
-                                newItem.Factura =  reader.GetString(4);
+                                newItem.Factura = reader.GetString(4);
                                 newItem.Imp_PagFact = reader.GetDecimal(5);
                                 newItem.uuid = reader.GetString(6);
                                 newItem.empresa = reader.GetString(7);

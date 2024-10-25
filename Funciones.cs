@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Mail;
 using System.Net;
+using System.Net.Mail;
 using System.Net.Mime;
 
 
@@ -52,7 +49,7 @@ namespace PagosEfectuados
         <tbody>
             <tr style='height: 62px;'>
                 <td style='width: 450px; background-color: #3b693c; text-align: center; height: 62px;'>
-                    <h2><span style='color: #ffffff;'><strong>Proveedor: "  + log[0].Nombre + @" </strong></span></h2>
+                    <h2><span style='color: #ffffff;'><strong>Proveedor: " + log[0].Nombre + @" </strong></span></h2>
                 </td>
             </tr>
             <tr style='height: 34px;'>
@@ -71,16 +68,24 @@ namespace PagosEfectuados
     <p>&nbsp;</p>
     <p>&nbsp;</p>
 </div> ";
-    
-            string Mail = cuerpo.Replace("%1%", " Pago: " + log[0].Folio.ToString()+ " | Importe: $" + log[0].Imp_Pago.ToString() + " | Fecha: " + DateTime.Now.ToString("yyyy/MM/dd"));
+
+            string Mail = cuerpo.Replace("%1%", " Pago: " + log[0].Folio.ToString() + " | Importe: $" + log[0].Imp_Pago.ToString() + " | Fecha: " + DateTime.Now.ToString("yyyy/MM/dd"));
             Mail = Mail.Replace("%2%", Cadenamail);
             MailMessage message = new MailMessage();
             message.From = new MailAddress("sbo_mailer@grupoelcerezo.com");
             Attachment attachment = new Attachment(path, MediaTypeNames.Application.Pdf);
             message.Attachments.Add(attachment);
-            message.To.Add("abraham.madrigal@grupoelcerezo.com");
-            message.To.Add(log[0].email);
-            message.Subject = "Pago " + log[0].empresa +" Fecha: " + DateTime.Now.ToString("yyyy/MM/dd");
+            if (log[0].email != "abraham.madrigal@grupoelcerezo.com")
+            {
+                message.To.Add(log[0].email);
+            }
+            message.Bcc.Add("pagosefectuados@grupoelcerezo.com");
+            if (log[0].empresa == "AUTOTRANSPORTES AGROBERRIES")
+            {
+                message.Bcc.Add("jesus.reyes@grupoelcerezo.com");
+                message.Bcc.Add("ahernandez@grupoelcerezo.com");
+            }
+            message.Subject = "Pago " + log[0].empresa + " Proveedor: " + log[0].Nombre + " Fecha: " + DateTime.Now.ToString("yyyy/MM/dd");
             message.Body = Mail;
             message.IsBodyHtml = true;
             smtpClient.Send(message);
@@ -90,6 +95,6 @@ namespace PagosEfectuados
 
         }
 
-         
+
     }
 }

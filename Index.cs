@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.ServiceProcess;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace PagosEfectuados
 {
     partial class Index : ServiceBase
     {
         bool bProceso = false;
-        bool bCambio = false;
 
         List<Objetos.Listbdd> listbdd = new List<Objetos.Listbdd>();
         string ruta = @"\\scerezo25\Pagos\Comprobantes\";
@@ -29,7 +25,9 @@ namespace PagosEfectuados
 
         protected override void OnStart(string[] args)
         {
+
             Proceso.Start();
+
         }
 
         protected override void OnStop()
@@ -39,23 +37,30 @@ namespace PagosEfectuados
 
         private void Proceso_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (bCambio) return;
-            { 
-                Proceso.Interval = 120000;
-                bCambio = true;
-            }
             if (bProceso) return;
             try
             {
+                if (Proceso.Interval != 120000)
+                {
+                    Proceso.Interval = 120000;
+                    LogClass.log("Cambio de tempororizador a 2 minutos... \r\n");
+                }
                 bProceso = true;
-
-                foreach (Objetos.Listbdd empresa in listbdd) { 
+                foreach (Objetos.Listbdd empresa in listbdd)
+                {
                     List<Objetos.ListaPagos> ListaPagos = new List<Objetos.ListaPagos>();
                     Objetos.ListaPagos Pago = new Objetos.ListaPagos();
-                    LogClass.log("Base... " + empresa.bdd + "\r\n");
 
-                    var dirs = Directory.EnumerateFiles(ruta + empresa.bdd +@"\", "*.*", SearchOption.AllDirectories)
+                    var dirs = Directory.EnumerateFiles(ruta + empresa.bdd + @"\", "*.*", SearchOption.TopDirectoryOnly)
                         .Where(s => s.EndsWith(".pdf"));
+                    if (dirs.Count() == 0)
+                    {
+                        LogClass.log("Base: " + empresa.bdd + " Archivos sin procesar... " + DateTime.Now.ToString("yyyy / MM / dd HH: mm:ss") + "\r\n");
+                    }
+                    else
+                    {
+                        LogClass.log("Base: " + empresa.bdd + " Archivos: " + dirs.Count().ToString() + "...\r\n");
+                    }
 
                     foreach (var di in dirs)
                     {
@@ -65,45 +70,64 @@ namespace PagosEfectuados
                         ListaPagos.Add(Pago);
                         Pago = new Objetos.ListaPagos();
                     }
+                    foreach (Objetos.ListaPagos PagoCursor in ListaPagos)
+                    {
 
-                    foreach (Objetos.ListaPagos PagoCursor in ListaPagos){
 
                         List<Objetos.QueryPago> DetallePago = new List<Objetos.QueryPago>();
 
                         DetallePago = SQL.ListaFactPagadas(PagoCursor.NoPago, PagoCursor.bdd);
 
-                        Funciones.MailNotificacion(DetallePago, PagoCursor.ruta);
+                        if (DetallePago.Count != 0)
+                        {
 
-                        File.Move(PagoCursor.ruta, Path.GetDirectoryName(PagoCursor.ruta) + @"\Procesado\" + Path.GetFileName(PagoCursor.ruta));
-                        try
-                        {
-                            LogClass.log("El archivo se movió exitosamente." + Path.GetDirectoryName(PagoCursor.ruta) + @"\Procesado\" + Path.GetFileName(PagoCursor.ruta));
-                        }
-                        catch (IOException ioEx)
-                        {
-                            LogClass.log("Error de E/S: " + ioEx.Message);
-                        }
-                        catch (UnauthorizedAccessException authEx)
-                        {
-                            LogClass.log("Error de acceso: " + authEx.Message);
-                        }
-                        catch (Exception ex)
-                        {
-                            LogClass.log("Error: " + ex.Message);
-                        }
+                            LogClass.log("Base: " + empresa.bdd + " Pago : " + PagoCursor.NoPago + "...\r\n");
 
+                            Funciones.MailNotificacion(DetallePago, PagoCursor.ruta);
+                            string SPath = Path.GetDirectoryName(PagoCursor.ruta) + @"\Procesado\" + Path.GetFileName(PagoCursor.ruta);
+
+                            if (File.Exists(SPath))
+                            {
+                                File.Replace(PagoCursor.ruta, SPath, null);
+                            }
+                            else
+                            {
+
+                                File.Move(PagoCursor.ruta, SPath);
+                            }
+                            try
+                            {
+                                LogClass.log("El archivo se movió exitosamente." + SPath + "...\r\n");
+                            }
+                            catch (IOException ioEx)
+                            {
+                                LogClass.log("Error de E/S: " + ioEx.Message + "...\r\n");
+                            }
+                            catch (UnauthorizedAccessException authEx)
+                            {
+                                LogClass.log("Error de acceso: " + authEx.Message + "...\r\n");
+                            }
+                            catch (Exception ex)
+                            {
+                                LogClass.log("Error: " + ex.Message + "...\r\n");
+                            }
+                        }
+                        else
+                        {
+                            LogClass.log("Pago a cuenta no se envia: " + "...\r\n");
+                        }
                     }
-
-
-
                 }
 
             }
             catch (Exception ex)
             {
-                LogClass.log(ex.Message + " - " + EventLogEntryType.Error + " "+ DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "\r\n");
+                LogClass.log(ex.Message + " - " + EventLogEntryType.Error + " " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "\r\n");
             }
             bProceso = false;
+            LogClass.log("Termino Ciclo.... " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "\r\n");
+
+
         }
     }
 }
